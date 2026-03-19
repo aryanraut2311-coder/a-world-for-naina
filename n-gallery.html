@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naina's 10 Beautiful Moments - n/ Gallery 💖</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #1a0a12 0%, #2d1520 100%);
+            font-family: 'Cinzel', serif;
+            color: #fce7f3;
+            overflow-x: auto;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, #f9a8c9, #f0cc87);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(249,168,201,0.5));
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .photo-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(249,168,201,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(249,168,201,0.2);
+        }
+        .photo-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .photo-label {
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌸 Naina's Beautiful Moments 🌸</h1>
+        <p class="subtitle">14 special images from n/ folder • Click any photo to view larger</p>
+        
+        <div class="grid">
+            <div class="photo-card" onclick="openModal(0)">
+                <img src="./n/image 1.jpeg" alt="Moment 1">
+                <div class="photo-label">Image 1 ✨</div>
+            </div>
+            <div class="photo-card" onclick="openModal(1)">
+                <img src="./n/image 2.jpeg" alt="Moment 2">
+                <div class="photo-label">Image 2 💖</div>
+            </div>
+            <div class="photo-card" onclick="openModal(2)">
+                <img src="./n/image 3.jpeg" alt="Moment 3">
+                <div class="photo-label">Image 3 🌷</div>
+            </div>
+            <div class="photo-card" onclick="openModal(3)">
+                <img src="./n/image 4.jpeg" alt="Moment 4">
+                <div class="photo-label">Image 4 🦋</div>
+            </div>
+            <div class="photo-card" onclick="openModal(4)">
+                <img src="./n/image 5.jpeg" alt="Moment 5">
+                <div class="photo-label">Image 5 ⭐</div>
+            </div>
+            <div class="photo-card" onclick="openModal(5)">
+                <img src="./n/image 6.jpeg" alt="Moment 6">
+                <div class="photo-label">Image 6 💕</div>
+            </div>
+            <div class="photo-card" onclick="openModal(6)">
+                <img src="./n/image 7.jpeg" alt="Moment 7">
+                <div class="photo-label">Image 7 🌟</div>
+            </div>
+            <div class="photo-card" onclick="openModal(7)">
+                <img src="./n/image 8.jpeg" alt="Moment 8">
+                <div class="photo-label">Image 8 🍓</div>
+            </div>
+            <div class="photo-card" onclick="openModal(8)">
+                <img src="./n/image 9.jpeg" alt="Moment 9">
+                <div class="photo-label">Image 9 💫</div>
+            </div>
+            <div class="photo-card" onclick="openModal(9)">
+                <img src="./n/image 10.jpeg" alt="Moment 10">
+                <div class="photo-label">Image 10 🎀</div>
+            </div>
+            <div class="photo-card" onclick="openModal(10)">
+                <img src="./n/image 11.jpeg" alt="Moment 11">
+                <div class="photo-label">Image 11 💗</div>
+            </div>
+            <div class="photo-card" onclick="openModal(11)">
+                <img src="./n/image 12.jpeg" alt="Moment 12">
+                <div class="photo-label">Image 12 🌸</div>
+            </div>
+            <div class="photo-card" onclick="openModal(12)">
+                <img src="./n/image 13.jpeg" alt="Moment 13">
+                <div class="photo-label">Image 13 ✨</div>
+            </div>
+            <div class="photo-card" onclick="openModal(13)">
+                <img src="./n/image 14.jpeg" alt="Moment 14">
+                <div class="photo-label">Image 14 💖</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="photoModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center; padding:20px;">
+        <span onclick="closeNModal()" style="position:absolute; top:20px; right:20px; font-size:3rem; color:#f9a8c9; cursor:pointer;">×</span>
+        <img id="nModalImg" style="max-width:90vw; max-height:90vh; border-radius:12px; box-shadow:0 0 50px rgba(249,168,201,0.5);" src="">
+    </div>
+
+    <script>
+        const N_IMGS = [
+            './n/image 1.jpeg',
+            './n/image 2.jpeg',
+            './n/image 3.jpeg',
+            './n/image 4.jpeg',
+            './n/image 5.jpeg',
+            './n/image 6.jpeg',
+            './n/image 7.jpeg',
+            './n/image 8.jpeg',
+            './n/image 9.jpeg',
+            './n/image 10.jpeg',
+            './n/image 11.jpeg',
+            './n/image 12.jpeg',
+            './n/image 13.jpeg',
+            './n/image 14.jpeg'
+        ];
+
+        function openModal(i) {
+            document.getElementById('nModalImg').src = N_IMGS[i];
+            document.getElementById('photoModal').style.display = 'flex';
+        }
+
+        function closeNModal() {
+            document.getElementById('photoModal').style.display = 'none';
+        }
+
+        document.getElementById('photoModal').onclick = function(e) {
+            if (e.target.id === 'photoModal') closeNModal();
+        }
+    </script>
+</body>
+</html>
